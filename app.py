@@ -3,11 +3,21 @@ from selenium.webdriver.edge.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
-import time, os, threading, pandas as pd
+import datetime, sys, time, os, threading, pandas as pd
 
-spreadName = 'Primeiros anos' # input('Digite o nome da planilha:\n')
+spreadName = input('Digite o nome da planilha:\n')
 spreadName.title()
-yearRegister = input('Insira o ano de registro:\n')
+yearRegister = input('Insira o ano de ingresso dos alunos:\n')
+if str(yearRegister) == ' ':
+    sys.exit("Informação inserida é invalida.\nNada foi informado")
+elif str(yearRegister) == 'nan':
+    sys.exit("Informação inserida é invalida.\nInformação discrepante, não contém números.")
+elif len(str(yearRegister)) != 4:
+    sys.exit("Informação inserida é invalida.\nAno com menos de quatro dígitos.")
+elif yearRegister > datetime.now().year:
+    sys.exit("Informação inserida é invalida.\nAno inválido, não há como inserir anos futuros.")
+
+cooldown = 0.5
 
 # Integração à planilha
 studentsSpreadsheet = pd.read_excel(rf"SIGE-CE_To_BibLivre5\archive\{spreadName}.xlsx", header = 0)
@@ -89,30 +99,37 @@ def userRegister():
     popup_option = driver.find_element(By.XPATH, '/html/body/form/div[1]/div[6]/ul/li[2]/ul/li[1]').click()
 
     #Registro de novo usuário
-    cont = 0
-    for i in nameUser:
+    contRegister = 0
+    for i in registrationUsers:
         driver.find_element(By.XPATH, '/html/body/form/div[3]/div[1]/div[2]/div[3]/div[1]/div[4]/a').click()
-        driver.find_element(By.XPATH, '/html/body/form/div[3]/div[1]/div[2]/div[3]/div[4]/div[1]/div[1]/div/div[1]/div[2]/input').send_keys(f'{nameUser[cont]}')
+        time.sleep(cooldown)
+        driver.find_element(By.XPATH, '/html/body/form/div[3]/div[1]/div[2]/div[3]/div[4]/div[1]/div[1]/div/div[1]/div[2]/input').send_keys(f'{nameUsers[contRegister]}')
         driver.find_element(By.XPATH, '/html/body/form/div[3]/div[1]/div[2]/div[3]/div[4]/div[1]/div[1]/div/div[3]/div[2]/select').find_element(By.XPATH, '/html/body/form/div[3]/div[1]/div[2]/div[3]/div[4]/div[1]/div[1]/div/div[3]/div[2]/select/option[2]').click()
-        driver.find_element(By.XPATH, '/html/body/form/div[3]/div[1]/div[2]/div[3]/div[4]/div[2]/div/div/fieldset/div/div[1]/div[2]/input').send_keys(f'{emailUser[cont]}')
-        if genderUser[cont] == 'f':
+        time.sleep(cooldown-0.4)
+        driver.find_element(By.XPATH, '/html/body/form/div[3]/div[1]/div[2]/div[3]/div[4]/div[2]/div/div/fieldset/div/div[1]/div[2]/input').send_keys(f'{emailUsers[contRegister]}')
+        if str(genderUsers[contRegister]).upper() == 'F':
             driver.find_element(By.XPATH, '/html/body/form/div[3]/div[1]/div[2]/div[3]/div[4]/div[2]/div/div/fieldset/div/div[2]/div[2]/select').find_element(By.XPATH, '/html/body/form/div[3]/div[1]/div[2]/div[3]/div[4]/div[2]/div/div/fieldset/div/div[2]/div[2]/select/option[3]').click()
-        elif genderUser[cont] == 'm':
+            time.sleep(cooldown-0.4)
+            driver.find_element(By.XPATH, '/html/body/form/div[3]/div[1]/div[2]/div[3]/div[4]/div[2]/div/div/fieldset/div/div[16]/div[2]/textarea').send_keys(f'Aluna de matrícula: {registrationUsers[contRegister]}, do ano de {yearRegister}.')
+            time.sleep(cooldown-0.4)
+        elif str(genderUsers[contRegister]).upper() == 'M':
             driver.find_element(By.XPATH, '/html/body/form/div[3]/div[1]/div[2]/div[3]/div[4]/div[2]/div/div/fieldset/div/div[2]/div[2]/select').find_element(By.XPATH, '/html/body/form/div[3]/div[1]/div[2]/div[3]/div[4]/div[2]/div/div/fieldset/div/div[2]/div[2]/select/option[2]').click()
-        driver.find_element(By.XPATH, '/html/body/form/div[3]/div[1]/div[2]/div[3]/div[4]/div[2]/div/div/fieldset/div/div[8]/div[2]/input').send_keys(f'{cpfUser[cont]}')
-        if genderUser[cont] == 'f':
-            driver.find_element(By.XPATH, '/html/body/form/div[3]/div[1]/div[2]/div[3]/div[4]/div[2]/div/div/fieldset/div/div[16]/div[2]/textarea').send_keys(f'Aluna de matrícula: {registrationUser[cont]}, do ano de {yearRegister}.')
-        elif genderUser[cont] == 'm':
-            driver.find_element(By.XPATH, '/html/body/form/div[3]/div[1]/div[2]/div[3]/div[4]/div[2]/div/div/fieldset/div/div[16]/div[2]/textarea').send_keys(f'Aluno de matrícula: {registrationUser[cont]}, do ano de {yearRegister}.')
+            time.sleep(cooldown-0.4)
+            driver.find_element(By.XPATH, '/html/body/form/div[3]/div[1]/div[2]/div[3]/div[4]/div[2]/div/div/fieldset/div/div[16]/div[2]/textarea').send_keys(f'Aluno de matrícula: {registrationUsers[contRegister]}, do ano de {yearRegister}.')
+            time.sleep(cooldown-0.4)
+        driver.find_element(By.XPATH, '/html/body/form/div[3]/div[1]/div[2]/div[3]/div[4]/div[2]/div/div/fieldset/div/div[8]/div[2]/input').send_keys(f'{cpfUsers[contRegister]}')
+        time.sleep(cooldown-0.4)
         driver.find_element(By.XPATH, '/html/body/form/div[3]/div[1]/div[2]/div[3]/div[4]/div[3]/div[2]/a[1]').click()
+        time.sleep(cooldown)
         driver.find_element(By.XPATH, '/html/body/form/div[3]/div[1]/div[2]/div[3]/div[2]/a').click()
-        cont += 1
+        time.sleep(cooldown)
 
+        contRegister += 1
     driver.quit()
 
 # Controle de concorrência
 firstThread  = threading.Thread(target=logGenerator)
-## secondThread = threading.Thread(target=userRegister)
+secondThread = threading.Thread(target=userRegister)
 
 firstThread.start()
-## secondThread.start()
+secondThread.start()
