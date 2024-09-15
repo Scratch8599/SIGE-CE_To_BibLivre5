@@ -11,7 +11,7 @@
 
 >***Aqui estão algumas informações úteis para sua leitura:***  
 >+ ***Nesse README.MD está contido a leitura em Inglês e português, toda leitura em português estará em Negrito e em Itálico;***
->+ ***Em alguns momentos, irei me referir a essa aplicação como: "D.E." (Data Extractor), "Ferramenta" ou App.***  
+>+ ***Em alguns momentos, irei me referir a essa aplicação como: "D.E." (Data Extractor), "Ferramenta" ou "App".***  
 
 
 
