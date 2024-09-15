@@ -11,7 +11,7 @@
 
 >***Aqui estão algumas informações úteis para sua leitura:***  
 >+ ***Nesse README.MD está contido a leitura em Inglês e português, toda leitura em português estará em Negrito e em Itálico;***
->+ ***Em alguns momentos, irei me referir a essa aplicação como: "D.E." (Data Extractor), "Ferramenta" ou App.***
+>+ ***Em alguns momentos, irei me referir a essa aplicação como: "D.E." (Data Extractor), "Ferramenta" ou App.***  
 
 
 
@@ -21,9 +21,9 @@ You are going to have Python, Pandas and Selenium on your machine.
 ***Você irá precisar de Python, Pandas e Selenium instalados em seu computador.***
 
 ## How to use ❓ | ***Como usar ❓***
-🏗️👷🏿 Working on README.MD ... ... ... ... ...  
+🏗️👷🏿 Working on README.MD ... ... ... ... ... 👷🏿🏗️  
 
-***🏗️👷🏿 README.MD em construção ... ... ... ... ...***
+***🏗️👷🏿 README.MD em construção ... ... ... ... ... 👷🏿🏗️***
 
 <br>
 
