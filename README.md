@@ -16,11 +16,26 @@
 
 
 ## What I need to use ❓ | ***O que preciso para usar ❓***
-You are going to have Python, Pandas and Selenium on your machine.  
+You are going to have Python, Threading, Pandas, Openpyxl and Selenium on your machine.  
 
-***Você irá precisar de Python, Pandas e Selenium instalados em seu computador.***
+***Você irá precisar de Python, Threading, Pandas, Openpyxl e Selenium instalados em seu computador.***
 
 ## How to use ❓ | ***Como usar ❓***
+1. To use this app, you need to have a auto genered SIGE PDF converted in docx (I used [SmallPDF](https://smallpdf.com/pt) to convert) like the one below:
+> [<img src="a" width="802"/>](image.png)  
+I known that is no one image, the screenshot will be here after censure
+
+2. You need to copy the tables for a xlsx, like the gif below:
+> [<img src="a" width="802"/>](image.png)  
+I known that is no one gif, the that one will be here after censure  
+
+3. Download or save the docx file and move to "SIGE-CE_To_BibLivre5\archive" folder;
+4. Execute app.py application and follow the steps:
+> 1. [...]
+
+
+
+
 🏗️👷🏿 Working on README.MD ... ... ... ... ... 👷🏿🏗️  
 
 ***🏗️👷🏿 README.MD em construção ... ... ... ... ... 👷🏿🏗️***
