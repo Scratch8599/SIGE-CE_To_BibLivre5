@@ -7,7 +7,7 @@ import time, os, threading, pandas as pd
 
 spreadName = 'Primeiros anos' # input('Digite o nome da planilha:\n')
 spreadName.title()
-# yearRegister = input('Insira o ano de registro:\n')
+yearRegister = input('Insira o ano de registro:\n')
 
 # Integração à planilha
 studentsSpreadsheet = pd.read_excel(rf"SIGE-CE_To_BibLivre5\archive\{spreadName}.xlsx", header = 0)
