@@ -17,7 +17,7 @@
 <br>
 
 # <center>ShowOff
-I didn't make a showoff yeat 🙂  
+I didn't make a showoff yet 🙂  
 
 ***Ainda não fiz um ShowOff 🙂***
 
